@@ -12,7 +12,7 @@ class LibulzConan(ConanFile):
     url = "https://github.com/bincrafters/conan-libulz"
     homepage = "https://github.com/rofl0r/libulz"
     author = "Bincrafters <bincrafters@gmail.com>"
-    license = "MIT"
+    license = "LGPL-2.1"
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
