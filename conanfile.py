@@ -27,6 +27,8 @@ class LibulzConan(ConanFile):
             self.options.remove("fPIC")
 
     def configure(self):
+        if self.settings.os == "Windows":
+            raise Exception("libulz is not supported on Windows")
         del self.settings.compiler.libcxx
 
     def source(self):
