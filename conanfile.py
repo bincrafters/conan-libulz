@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from conans import ConanFile, CMake, tools
+from conans.errors import ConanInvalidConfiguration
 import os
 
 
@@ -18,9 +19,9 @@ class LibulzConan(ConanFile):
     generators = "cmake"
     settings = "os", "arch", "compiler", "build_type"
     options = {"shared": [True, False], "fPIC": [True, False]}
-    default_options = "shared=False", "fPIC=True"
-    source_subfolder = "source_subfolder"
-    build_subfolder = "build_subfolder"
+    default_options = {'shared': False, 'fPIC': True}
+    _source_subfolder = "source_subfolder"
+    _build_subfolder = "build_subfolder"
 
     def config_options(self):
         if self.settings.os == 'Windows':
@@ -28,27 +29,27 @@ class LibulzConan(ConanFile):
 
     def configure(self):
         if self.settings.os == "Windows":
-            raise Exception("libulz is not supported on Windows")
+            raise ConanInvalidConfiguration("libulz is not supported on Windows")
         del self.settings.compiler.libcxx
 
     def source(self):
         full_version = self.version + "adf6cf6f6ea594340fd94de706fb979ca"
         tools.get("{0}/archive/{1}.zip".format(self.homepage, self.version))
         extracted_dir = self.name + "-" + full_version
-        os.rename(extracted_dir, self.source_subfolder)
+        os.rename(extracted_dir, self._source_subfolder)
 
-    def configure_cmake(self):
+    def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.configure(build_folder=self.build_subfolder)
+        cmake.configure(build_folder=self._build_subfolder)
         return cmake
 
     def build(self):
-        cmake = self.configure_cmake()
+        cmake = self._configure_cmake()
         cmake.build()
 
     def package(self):
-        self.copy(pattern="COPYING", dst="licenses", src=self.source_subfolder)
-        cmake = self.configure_cmake()
+        self.copy(pattern="COPYING", dst="licenses", src=self._source_subfolder)
+        cmake = self._configure_cmake()
         cmake.install()
 
     def package_info(self):

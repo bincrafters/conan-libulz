@@ -2,7 +2,7 @@
 
 | Bintray | Linux & macOS |
 |:--------:|:-----------------:|
-|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/libulz%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/libulz%3Abincrafters/_latestVersion)|[![Build Status](https://travis-ci.org/bincrafters/conan-libulz.svg)](https://travis-ci.org/bincrafters/conan-libulz)|
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/libulz%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/libulz%3Abincrafters/_latestVersion)|[![Build Status](https://travis-ci.com/bincrafters/conan-libulz.svg)](https://travis-ci.com/bincrafters/conan-libulz)|
 
 ## Conan.io Information
 
