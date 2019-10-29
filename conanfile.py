@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from conans import ConanFile, CMake, tools
 from conans.errors import ConanInvalidConfiguration
 import os
@@ -31,6 +28,7 @@ class LibulzConan(ConanFile):
         if self.settings.os == "Windows":
             raise ConanInvalidConfiguration("libulz is not supported on Windows")
         del self.settings.compiler.libcxx
+        del self.settings.compiler.cppstd
 
     def source(self):
         full_version = self.version + "adf6cf6f6ea594340fd94de706fb979ca"
