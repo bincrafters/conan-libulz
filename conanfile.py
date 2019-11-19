@@ -9,7 +9,6 @@ class LibulzConan(ConanFile):
     description = "A collection of useful functions and data structures to create C apps"
     url = "https://github.com/bincrafters/conan-libulz"
     homepage = "https://github.com/rofl0r/libulz"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "LGPL-2.1"
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
