@@ -10,7 +10,6 @@ class LibulzConan(ConanFile):
     url = "https://github.com/bincrafters/conan-libulz"
     homepage = "https://github.com/rofl0r/libulz"
     license = "LGPL-2.1"
-    exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     settings = "os", "arch", "compiler", "build_type"
